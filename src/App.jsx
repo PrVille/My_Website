@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState, useMemo } from "react"
+import { useSelector } from "react-redux"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
+import { getDesignTokens } from "./theme"
 
-function App() {
-  const [count, setCount] = useState(0)
+import CssBaseline from "@mui/material/CssBaseline"
+import Container from "@mui/material/Container"
+import Footer from "./components/Footer"
+import NavigationBar from "./components/NavigationBar"
+import Content from "./components/Content"
+
+const App = () => {
+  const [mode, setMode] = useState("light")
+  const darkMode = useSelector((state) => state.theme.darkMode)
+
+  useMemo(() => {
+    if (darkMode) {
+      setMode("dark")
+    } else {
+      setMode("light")
+    }
+  }, [darkMode])
+
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Container
+          maxWidth={false}
+          disableGutters
+          sx={{ minHeight: "200vh", flex: 1 }}
+        >
+          <NavigationBar />
+          <Content />
+          <Footer />
+        </Container>
+      </ThemeProvider>
+    </>
   )
 }
 
