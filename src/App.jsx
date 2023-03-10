@@ -5,8 +5,9 @@ import { getDesignTokens } from "./theme"
 
 import CssBaseline from "@mui/material/CssBaseline"
 import Container from "@mui/material/Container"
+
 import Footer from "./components/Footer"
-import NavigationBar from "./components/NavigationBar"
+import Header from "./components/Header"
 import Content from "./components/Content"
 
 const App = () => {
@@ -28,11 +29,16 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container
+          id="back-to-top-anchor"
           maxWidth={false}
           disableGutters
-          sx={{ minHeight: "200vh", flex: 1 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100vh",
+          }}
         >
-          <NavigationBar />
+          <Header />
           <Content />
           <Footer />
         </Container>
