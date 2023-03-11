@@ -1,5 +1,4 @@
 import { useState, cloneElement } from "react"
-import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { toggleTheme } from "../store/reducers/themeSlice"
 import { useTheme } from "@mui/material"
@@ -70,10 +69,10 @@ const ScrollTop = ({ children }) => {
 }
 
 const pages = [
-  { label: "About", to: "about" },
-  { label: "Skills", to: "skills" },
-  { label: "Projects", to: "projects" },
-  { label: "Contact", to: "contact" },
+  { label: "About", to: "#about" },
+  { label: "Skills", to: "#skills" },
+  { label: "Projects", to: "#projects" },
+  { label: "Contact", to: "#contact" },
 ]
 
 const Header = (props) => {
@@ -117,8 +116,8 @@ const Header = (props) => {
               <Typography
                 variant="h6"
                 noWrap
-                component={Link}
-                to="/"
+                component="a"
+                href="/"
                 sx={{
                   mr: 2,
                   display: { xs: "none", md: "flex" },
@@ -166,8 +165,8 @@ const Header = (props) => {
                   {pages.map((page) => (
                     <MenuItem key={page.label} onClick={handleCloseNavMenu}>
                       <Typography
-                        component={Link}
-                        to={page.to}
+                        component="a"
+                        href={page.to}
                         textAlign="center"
                         sx={{
                           fontFamily: "monospace",
@@ -187,8 +186,8 @@ const Header = (props) => {
               <Typography
                 variant="h5"
                 noWrap
-                component={Link}
-                to="/"
+                component="a"
+                href="/"
                 sx={{
                   mr: 2,
                   display: { xs: "flex", md: "none" },
@@ -207,8 +206,8 @@ const Header = (props) => {
                 {pages.map((page) => (
                   <MenuItem key={page.label}>
                     <Typography
-                      component={Link}
-                      to={page.to}
+                      component="a"
+                      href={page.to}
                       textAlign="center"
                       sx={{
                         fontFamily: "monospace",

@@ -1,5 +1,3 @@
-import { Routes, Route } from "react-router-dom"
-
 import Container from "@mui/material/Container"
 
 import Home from "./pages/Home"
@@ -12,19 +10,17 @@ const Content = () => {
   return (
     <>
       <Container
-        maxWidth={false}
+      maxWidth={false}
         sx={{
           flex: 1,
-          pt: 20,
+          pt: 15,
         }}
       >
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
       </Container>
     </>
   )
