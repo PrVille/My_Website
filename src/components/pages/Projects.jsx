@@ -16,7 +16,6 @@ const Projects = () => {
         height: "100vh",
       }}
     >
-      <EaseIn triggerThreshold={1} direction="right">
         <Typography
           variant="h1"
           sx={{
@@ -28,7 +27,6 @@ const Projects = () => {
         >
           PROJECTS
         </Typography>
-      </EaseIn>
     </Box>
   )
 }

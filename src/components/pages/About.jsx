@@ -5,7 +5,6 @@ import EaseIn from "../EaseIn"
 
 const About = () => {
   return (
-    <EaseIn direction="right">
     <Box
       sx={{
         bgcolor: "",
@@ -46,8 +45,6 @@ const About = () => {
           </Typography>
       </Box>
     </Box>
-    </EaseIn>
-
   )
 }
 
