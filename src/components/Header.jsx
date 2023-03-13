@@ -6,6 +6,7 @@ import { useTheme } from "@mui/material"
 import Alert from "@mui/material/Alert"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
 import Collapse from "@mui/material/Collapse"
 import Toolbar from "@mui/material/Toolbar"
 import IconButton from "@mui/material/IconButton"
@@ -18,6 +19,8 @@ import Fab from "@mui/material/Fab"
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp"
 import Fade from "@mui/material/Fade"
 import MenuItem from "@mui/material/MenuItem"
+
+import Offset from "./common/Offset"
 
 import Brightness4Icon from "@mui/icons-material/Brightness4"
 import Brightness7Icon from "@mui/icons-material/Brightness7"
@@ -44,15 +47,7 @@ const ScrollTop = ({ children }) => {
   })
 
   const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
-    )
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        block: "center",
-      })
-    }
+    window.scrollTo({ top: 0 });
   }
 
   return (
@@ -77,6 +72,7 @@ const pages = [
 
 const Header = (props) => {
   const dispatch = useDispatch()
+  const theme = useTheme()
   const darkMode = useSelector((state) => state.theme.darkMode)
   const [anchorElNav, setAnchorElNav] = useState(null)
   const [alertOpen, setAlertOpen] = useState(true)
@@ -127,6 +123,10 @@ const Header = (props) => {
                   color: "inherit",
                   textDecoration: "none",
                   opacity: 1,
+                  transition: "all .2s ease-in-out",
+                  ":hover": {
+                    transform: "scale(1.1)",
+                  },
                 }}
               >
                 VILLE PRAMI
@@ -163,7 +163,17 @@ const Header = (props) => {
                   }}
                 >
                   {pages.map((page) => (
-                    <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                    <MenuItem
+                      key={page.label}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        transition: "all .2s ease-in-out",
+                        ":hover": {
+                          transform: "scale(1.1)",
+                          backgroundColor: "pink",
+                        },
+                      }}
+                    >
                       <Typography
                         component="a"
                         href={page.to}
@@ -183,28 +193,49 @@ const Header = (props) => {
                 </Menu>
               </Box>
 
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href="/"
+              <Box
                 sx={{
-                  mr: 2,
                   display: { xs: "flex", md: "none" },
                   flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
+                  alignSelf: "center",
                 }}
               >
-                VILLE PRAMI
-              </Typography>
+                <Typography
+                  variant="h5"
+                  noWrap
+                  component="a"
+                  href="/"
+                  sx={{
+                    mr: 2,
+                    display: { xs: "flex", md: "none" },
+                    flexGrow: 0,
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                    transition: "all .2s ease-in-out",
+                    ":hover": {
+                      transform: "scale(1.1)",
+                    },
+                  }}
+                >
+                  VILLE PRAMI
+                </Typography>
+              </Box>
 
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
-                  <MenuItem key={page.label}>
+                  <MenuItem
+                    key={page.label}
+                    sx={{
+                      transition: "all .2s ease-in-out",
+                      ":hover": {
+                        transform: "scale(1.1)",
+                        backgroundColor: "pink",
+                      },
+                    }}
+                  >
                     <Typography
                       component="a"
                       href={page.to}
@@ -225,9 +256,14 @@ const Header = (props) => {
 
               <Box>
                 <IconButton
-                  sx={{ ml: 1 }}
                   onClick={() => dispatch(toggleTheme())}
                   color="inherit"
+                  sx={{
+                    transition: "all .2s ease-in-out",
+                    ":hover": {
+                      transform: "scale(1.2)", 
+                    },
+                  }}
                 >
                   {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
@@ -236,13 +272,23 @@ const Header = (props) => {
           </Container>
         </AppBar>
       </ElevationScroll>
+      <Offset />
 
       <ScrollTop {...props}>
-        <Fab size="small">
+        <Fab
+          size="small"
+          sx={{
+            transition: "all .2s ease-in-out",
+            "&:hover": {
+              transform: "scale(1.2)",
+            },
+          }}
+        >
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
     </>
   )
 }
+
 export default Header

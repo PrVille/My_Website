@@ -16,8 +16,9 @@ const Contact = () => {
         height: "100vh",
       }}
     >
+      <EaseIn>
         <Typography
-          variant="h1"
+          variant="h2"
           sx={{
             fontFamily: "monospace",
             letterSpacing: ".5rem",
@@ -27,6 +28,7 @@ const Contact = () => {
         >
           CONTACT
         </Typography>
+      </EaseIn>
     </Box>
   )
 }

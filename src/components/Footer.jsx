@@ -17,13 +17,14 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
+        bgcolor: "",
         py: 3,
         mt: "auto",
       }}
     >
       <Container
         maxWidth={false}
-        sx={{ display: "flex", flexDirection: "row" }}
+        sx={{ display: "flex", flexDirection: "row", bgcolor: "" }}
       >
         <Copyright sx={{ flex: 1, alignSelf: "center" }} />
 

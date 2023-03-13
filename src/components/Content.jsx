@@ -10,7 +10,7 @@ const Content = () => {
   return (
     <>
       <Container
-      maxWidth={false}
+        maxWidth={false}
         sx={{
           flex: 1,
           pt: 15,

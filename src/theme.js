@@ -1,11 +1,12 @@
 const lightPalette = {
   primary: {
     main: "#ffffff",
+    secondary: "#f9f9fb"
   },
   divider: "#fde68a",
   background: {
     default: "#ffffff",
-    secondary: "#f9f9fb",
+    secondary: "#f9f9f9",
     paper: "#ffffff",
     header: "#ffffff",
   },
@@ -15,6 +16,7 @@ const lightPalette = {
   },
   shadows: {
     sm: "0px 0px 0px black",
+    md: "0px 0px 3px black",
     lg: "0px 0px 6px black",
   },
 }
@@ -22,6 +24,7 @@ const lightPalette = {
 const darkPalette = {
   primary: {
     main: "#fff",
+    secondary: "#1f1f1f"
   },
   divider: "#fff",
   background: {
@@ -36,6 +39,7 @@ const darkPalette = {
   },
   shadows: {
     sm: "0px 0px 0px white",
+    md: "0px 0px 3px white",
     lg: "0px 0px 6px white",
   },
 }

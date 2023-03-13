@@ -29,13 +29,12 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container
-          id="back-to-top-anchor"
           maxWidth={false}
           disableGutters
           sx={{
             display: "flex",
             flexDirection: "column",
-            height: "100vh",
+            bgcolor: ""
           }}
         >
           <Header />

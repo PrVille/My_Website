@@ -12,10 +12,7 @@ const Home = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        pt: 10,
-        pb: 30 
-      
-
+        pb: 30,
       }}
     >
       <Typography
@@ -24,7 +21,7 @@ const Home = () => {
           fontFamily: "monospace",
           letterSpacing: ".1rem",
           fontWeight: 700,
-          textAlign: "center"
+          textAlign: "center", 
         }}
       >
         SOFTWARE ENGINEER & FULL STACK WEB DEVELOPER
