@@ -47,7 +47,7 @@ const ScrollTop = ({ children }) => {
   })
 
   const handleClick = (event) => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0 })
   }
 
   return (
@@ -64,10 +64,12 @@ const ScrollTop = ({ children }) => {
 }
 
 const pages = [
-  { label: "About", to: "#about" },
-  { label: "Skills", to: "#skills" },
-  { label: "Projects", to: "#projects" },
-  { label: "Contact", to: "#contact" },
+  { label: "Home", to: "#home", color: "" },
+  { label: "About", to: "#about", color: "about" },
+  { label: "Education", to: "#education", color: "education" },
+  { label: "Skills", to: "#skills", color: "skills" },
+  { label: "Projects", to: "#projects", color: "projects" },
+  { label: "Contact", to: "#contact", color: "contact" },
 ]
 
 const Header = (props) => {
@@ -170,7 +172,7 @@ const Header = (props) => {
                         transition: "all .2s ease-in-out",
                         ":hover": {
                           transform: "scale(1.1)",
-                          backgroundColor: "pink",
+                          backgroundColor: theme.palette.colors[page.color],
                         },
                       }}
                     >
@@ -229,10 +231,13 @@ const Header = (props) => {
                   <MenuItem
                     key={page.label}
                     sx={{
-                      transition: "all .2s ease-in-out",
                       ":hover": {
                         transform: "scale(1.1)",
-                        backgroundColor: "pink",
+                        background: `linear-gradient(${
+                          theme.palette.colors[page.color]
+                        }, ${
+                          theme.palette.colors[page.color]
+                        }) 50% 70% / 80% 8px no-repeat`,
                       },
                     }}
                   >
@@ -261,7 +266,7 @@ const Header = (props) => {
                   sx={{
                     transition: "all .2s ease-in-out",
                     ":hover": {
-                      transform: "scale(1.2)", 
+                      transform: "scale(1.2)",
                     },
                   }}
                 >

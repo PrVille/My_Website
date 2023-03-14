@@ -3,49 +3,58 @@ import Typography from "@mui/material/Typography"
 
 import EaseIn from "../EaseIn"
 import Offset from "../common/Offset"
+import SectionTitle from "../common/SectionTitle"
+import { useTheme } from "@mui/material"
+import useStopWatch from "../../hooks/UseStopWatch"
+
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter"
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx"
+import oneLight from "react-syntax-highlighter/dist/esm/styles/prism/one-light"
+import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
+
+SyntaxHighlighter.registerLanguage("jsx", jsx)
 
 const About = () => {
+  const theme = useTheme()
+  const darkMode = theme.palette.darkMode
+  const { years, months, days, hours, minutes, seconds } = useStopWatch()
+
   return (
     <Box
       id="about"
       sx={{
         bgcolor: "",
         display: "flex",
-        flex: 1,
         flexDirection: "column",
-        alignItems: "center",
-        pb: 10,
       }}
     >
       <Offset />
-      <Box sx={{ display: "flex" }}>
-        <Typography
-          variant="h3"
-          sx={{
-            fontFamily: "monospace",
-            letterSpacing: ".1rem",
-            fontWeight: 700,
-          }}
-        >
-          WELCOME.
-        </Typography>
-      </Box>
-
-      <Box sx={{ flex: 1, pt: 5, px: 20, bgcolor: "" }}>
-        <Typography
-          variant="body1"
-          sx={{
-            fontFamily: "monospace",
-            letterSpacing: ".1rem",
-            fontWeight: 700,
-            textAlign: "center",
-          }}
-        >
-          My name is Ville Prami and I'm a software engineer and a full stack
-          web developer based in Helsinki, Finland. I'm currently studying
-          computer science at Aalto university.
-        </Typography>
-      </Box>
+      <SectionTitle color={theme.palette.colors.about}>ABOUT</SectionTitle>
+      <SyntaxHighlighter
+        language="jsx"
+        style={darkMode ? oneDark : oneLight}
+        wrapLongLines={false}
+      >
+        {`const me = {
+  name: "Ville Prami",
+  country: "Finland",
+  city: "Helsinki",
+  titles: [
+    "software engineer", 
+    "full stack web developer"
+  ],
+  studying: "computer science",
+  school: "Aalto university",
+  developerFor: {
+    years: ${years},
+    months: ${months},
+    days: ${days},
+    hours: ${hours},
+    minutes: ${minutes},
+    seconds: ${seconds}
+  }
+}`}
+      </SyntaxHighlighter>
     </Box>
   )
 }

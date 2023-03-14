@@ -53,28 +53,43 @@ import {
   SiVite,
 } from "react-icons/si"
 import { FaDatabase } from "react-icons/fa"
+import SectionTitle from "../common/SectionTitle"
+
+const styles = {
+  scaleOnHover: {
+    transition: "all .2s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  },
+  skillCards: {
+    bgcolor: "",
+    display: "flex",
+    py: 3,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: "10px",
+  },
+  subtitle: {
+    fontFamily: "monospace",
+    letterSpacing: ".3rem",
+    fontWeight: 700,
+  },
+}
 
 const SkillCard = ({ Icon, label, size = 60 }) => {
   const theme = useTheme()
+
   return (
-    <Box
-      sx={{
-        transition: "all .2s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.1)",
-        },
-      }}
-    >
+    <Box sx={styles.scaleOnHover}>
       <EaseIn randomDirection>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            bgcolor: "background.secondary",
             p: 1,
-            m: 0.75,
-            boxShadow: theme.palette.shadows.md,
+            boxShadow: `2px 2px 4px ${theme.palette.colors.skills}`,
             borderRadius: 3,
             width: 128,
             height: 140,
@@ -112,8 +127,9 @@ const SkillCard = ({ Icon, label, size = 60 }) => {
   )
 }
 
-
 const Skills = () => {
+  const theme = useTheme()
+
   return (
     <Box
       id="skills"
@@ -124,38 +140,25 @@ const Skills = () => {
       }}
     >
       <Offset />
+      <SectionTitle color={theme.palette.colors.skills}>SKILLS</SectionTitle>
+
       <Typography
-        variant="h3"
+        variant="h4"
         sx={{
           fontFamily: "monospace",
-          letterSpacing: ".1rem",
+          letterSpacing: ".3rem",
           fontWeight: 700,
-          textAlign: "center",
+          mb: 5,
         }}
       >
-        TECHNOLOGIES & TOOLS
+        Technologies & Tools
       </Typography>
 
-      <Box sx={{ flex: 1, pt: 5, px: 0, bgcolor: "" }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontFamily: "monospace",
-            letterSpacing: ".5rem",
-            fontWeight: 700,
-          }}
-        >
+      <Box sx={{ flex: 1, pt: 0, px: 0, bgcolor: "" }}>
+        <Typography variant="h5" sx={styles.subtitle}>
           Languages
         </Typography>
-        <Box
-          sx={{
-            bgcolor: "",
-            display: "flex",
-            py: 3,
-            flexDirection: "row",
-            flexWrap: "wrap",
-          }}
-        >
+        <Box sx={styles.skillCards}>
           <SkillCard Icon={SiCplusplus} label="C++" />
           <SkillCard Icon={SiCss3} label="CSS" />
           <SkillCard Icon={SiGraphql} label="GraphQL" />
@@ -170,114 +173,63 @@ const Skills = () => {
       </Box>
 
       <Box sx={{ flex: 1, pt: 0, px: 0, bgcolor: "" }}>
-        <Box>
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: "monospace",
-              letterSpacing: ".5rem",
-              fontWeight: 700,
-            }}
-          >
-            Frameworks & Libraries
-          </Typography>
-          <Box
-            sx={{
-              bgcolor: "",
-              display: "flex",
-              py: 3,
-              flexDirection: "row",
-              flexWrap: "wrap",
-            }}
-          >
-            <SkillCard Icon={SiApollographql} label="Apollo GraphQL" />
-            <SkillCard Icon={SiBootstrap} label="Bootstrap" />
-            <SkillCard Icon={SiCypress} label="Cypress" />
-            <SkillCard Icon={SiDeno} label="Deno" />
-            <SkillCard Icon={SiExpo} label="Expo" />
-            <SkillCard Icon={SiExpress} label="Express" />
-            <SkillCard Icon={SiGithubactions} label="GitHub Actions" />
-            <SkillCard Icon={SiJest} label="Jest" />
-            <SkillCard Icon={SiMui} label="MUI" />
-            <SkillCard Icon={SiNpm} label="npm" />
-            <SkillCard Icon={SiNodedotjs} label="Node" />
-            <SkillCard Icon={SiNodemon} label="Nodemon" />
-            <SkillCard Icon={SiReact} label="React" />
-            <SkillCard Icon={SiReact} label="React Native" />
-            <SkillCard Icon={SiReactrouter} label="React Router" />
-            <SkillCard Icon={SiRedux} label="Redux" />
-          </Box>
+        <Typography variant="h5" sx={styles.subtitle}>
+          Frameworks & Libraries
+        </Typography>
+        <Box sx={styles.skillCards}>
+          <SkillCard Icon={SiApollographql} label="Apollo GraphQL" />
+          <SkillCard Icon={SiBootstrap} label="Bootstrap" />
+          <SkillCard Icon={SiCypress} label="Cypress" />
+          <SkillCard Icon={SiDeno} label="Deno" />
+          <SkillCard Icon={SiExpo} label="Expo" />
+          <SkillCard Icon={SiExpress} label="Express" />
+          <SkillCard Icon={SiGithubactions} label="GitHub Actions" />
+          <SkillCard Icon={SiJest} label="Jest" />
+          <SkillCard Icon={SiMui} label="MUI" />
+          <SkillCard Icon={SiNpm} label="npm" />
+          <SkillCard Icon={SiNodedotjs} label="Node" />
+          <SkillCard Icon={SiNodemon} label="Nodemon" />
+          <SkillCard Icon={SiReact} label="React" />
+          <SkillCard Icon={SiReact} label="React Native" />
+          <SkillCard Icon={SiReactrouter} label="React Router" />
+          <SkillCard Icon={SiRedux} label="Redux" />
         </Box>
       </Box>
 
       <Box sx={{ flex: 1, pt: 0, px: 0, bgcolor: "" }}>
-        <Box>
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: "monospace",
-              letterSpacing: ".5rem",
-              fontWeight: 700,
-            }}
-          >
-            Databases & Cloud Hosting
-          </Typography>
-          <Box
-            sx={{
-              bgcolor: "",
-              display: "flex",
-              py: 3,
-              flexDirection: "row",
-              flexWrap: "wrap",
-            }}
-          >
-            <SkillCard Icon={SiGithubpages} label="GitHub Pages" />
-            <SkillCard Icon={SiMongodb} label="MongoDB" />
-            <SkillCard Icon={SiSequelize} label="Sequelize" />
-            <SkillCard Icon={SiSqlite} label="SQLite" />
-            <SkillCard Icon={SiPostgresql} label="PostgreSQL" />
-            <SkillCard Icon={SiVercel} label="Vercel" />
-          </Box>
+        <Typography variant="h5" sx={styles.subtitle}>
+          Databases & Cloud Hosting
+        </Typography>
+        <Box sx={styles.skillCards}>
+          <SkillCard Icon={SiGithubpages} label="GitHub Pages" />
+          <SkillCard Icon={SiMongodb} label="MongoDB" />
+          <SkillCard Icon={SiSequelize} label="Sequelize" />
+          <SkillCard Icon={SiSqlite} label="SQLite" />
+          <SkillCard Icon={SiPostgresql} label="PostgreSQL" />
+          <SkillCard Icon={SiVercel} label="Vercel" />
         </Box>
       </Box>
 
       <Box sx={{ flex: 1, pt: 0, px: 0, bgcolor: "" }}>
-        <Box>
-          <Typography
-            variant="h4"
-            sx={{
-              fontFamily: "monospace",
-              letterSpacing: ".5rem",
-              fontWeight: 700,
-            }}
-          >
-            Software & Tools
-          </Typography>
+        <Typography variant="h5" sx={styles.subtitle}>
+          Software & Tools
+        </Typography>
 
-          <Box
-            sx={{
-              bgcolor: "",
-              display: "flex",
-              py: 3,
-              flexDirection: "row",
-              flexWrap: "wrap",
-            }}
-          >
-            <SkillCard Icon={SiCanva} label="Canva" />
-            <SkillCard Icon={SiDocker} label="Docker" />
-            <SkillCard Icon={SiEclipseide} label="Eclipse" />
-            <SkillCard Icon={SiEslint} label="ESLint" />
-            <SkillCard Icon={SiGit} label="Git" />
-            <SkillCard Icon={SiGithub} label="GitHub" />
-            <SkillCard Icon={SiGitlab} label="GitLab" />
-            <SkillCard Icon={SiGooglesheets} label="Google Sheets" />
-            <SkillCard Icon={SiIntellijidea} label="IntelliJ IDEA" />
-            <SkillCard Icon={SiMicrosoftoffice} label="Microsoft Office" />
-            <SkillCard Icon={SiNginx} label="NGINX" />
-            <SkillCard Icon={SiPostman} label="Postman" />
-            <SkillCard Icon={SiVisualstudiocode} label="VS Code" />
-            <SkillCard Icon={SiVite} label="Vite" />
-          </Box>
+        <Box sx={styles.skillCards}>
+          <SkillCard Icon={SiCanva} label="Canva" />
+          <SkillCard Icon={SiDocker} label="Docker" />
+          <SkillCard Icon={SiEclipseide} label="Eclipse" />
+          <SkillCard Icon={SiEslint} label="ESLint" />
+          <SkillCard Icon={SiGit} label="Git" />
+          <SkillCard Icon={SiGithub} label="GitHub" />
+          <SkillCard Icon={SiGitlab} label="GitLab" />
+          <SkillCard Icon={SiGooglesheets} label="Google Sheets" />
+          <SkillCard Icon={SiIntellijidea} label="IntelliJ IDEA" />
+          <SkillCard Icon={SiMicrosoftoffice} label="Microsoft Office" />
+          <SkillCard Icon={SiNginx} label="NGINX" />
+          <SkillCard Icon={SiPostman} label="Postman" />
+          <SkillCard Icon={SiVisualstudiocode} label="VS Code" />
+          <SkillCard Icon={SiVite} label="Vite" />
         </Box>
       </Box>
     </Box>

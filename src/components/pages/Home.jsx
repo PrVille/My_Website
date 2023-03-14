@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
+import Offset from "../common/Offset"
+import Underline from "../common/Underline"
 
 import EaseIn from "../EaseIn"
 
@@ -15,6 +17,7 @@ const Home = () => {
         pb: 30,
       }}
     >
+      <Offset />
       <Typography
         variant="h3"
         sx={{

@@ -9,7 +9,7 @@ const EaseIn = ({
   children,
   direction = "right",
   timeout = 1000,
-  triggerThreshold = 1,
+  triggerThreshold = 0.5,
   randomDirection,
   triggerOnce = true,
   zoom,

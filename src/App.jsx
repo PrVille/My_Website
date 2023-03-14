@@ -9,7 +9,6 @@ import Container from "@mui/material/Container"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Content from "./components/Content"
-
 const App = () => {
   const [mode, setMode] = useState("light")
   const darkMode = useSelector((state) => state.theme.darkMode)
@@ -29,12 +28,13 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Container
-          maxWidth={false}
-          disableGutters
+          //maxWidth={false}
+          //disableGutters
+          id="home"
           sx={{
             display: "flex",
             flexDirection: "column",
-            bgcolor: ""
+            bgcolor: "",
           }}
         >
           <Header />

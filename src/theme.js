@@ -1,7 +1,8 @@
 const lightPalette = {
+  darkMode: false,
   primary: {
     main: "#ffffff",
-    secondary: "#f9f9fb"
+    secondary: "#f9f9fb",
   },
   divider: "#fde68a",
   background: {
@@ -19,12 +20,20 @@ const lightPalette = {
     md: "0px 0px 3px black",
     lg: "0px 0px 6px black",
   },
+  colors: {
+    about: "#9f70ba",
+    education: "#5adbff",
+    skills: "#ff4287",
+    projects: "#fe9000",
+    contact: "#ffdd4a",
+  }
 }
 
 const darkPalette = {
+  darkMode: true,
   primary: {
     main: "#fff",
-    secondary: "#1f1f1f"
+    secondary: "#1f1f1f",
   },
   divider: "#fff",
   background: {
@@ -42,6 +51,13 @@ const darkPalette = {
     md: "0px 0px 3px white",
     lg: "0px 0px 6px white",
   },
+  colors: {
+    about: "#9f70ba",
+    education: "#5adbff",
+    skills: "#ff4287",
+    projects: "#fe9000",
+    contact: "#ffdd4a",
+  }
 }
 
 export const getDesignTokens = (mode) => ({
