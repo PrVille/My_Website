@@ -5,7 +5,7 @@ import EaseIn from "../EaseIn"
 import Offset from "../common/Offset"
 import SectionTitle from "../common/SectionTitle"
 import { useTheme } from "@mui/material"
-import useStopWatch from "../../hooks/UseStopWatch"
+import useStopWatch from "../../hooks/useStopWatch"
 
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter"
 import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx"
